@@ -64,3 +64,19 @@ h4{
     font-size: var(--h4-font);
     letter-spacing: 1px;
 }
+
+.navbar {
+  font-family: var(--title-font);  
+  text-transform: uppercase;
+  letter-spacing: -1.05px;
+  font-size: 28px;
+
+}
+
+.nav-link{
+    font-family: var(--p-font);
+    font-size: var(--h4-font);
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
