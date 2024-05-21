@@ -66,11 +66,14 @@ h4{
 }
 
 .navbar {
-  font-family: var(--title-font);  
-  text-transform: uppercase;
-  letter-spacing: -1.05px;
-  font-size: 28px;
+    text-transform: uppercase;
+    margin: 0px 32px;
+}
 
+.navbar-brand{
+    font-family: var(--title-font);  
+    letter-spacing: -1.05px;
+    font-size: 28px;
 }
 
 .nav-link{
