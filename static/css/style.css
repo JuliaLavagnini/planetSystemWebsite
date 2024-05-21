@@ -20,6 +20,10 @@
     --neptune-color: #2d68f0;
 }
 
+html {
+    height: 100%;
+}
+
 body{
     color: var(--white-color);
     font-family: var(--main-font);
@@ -82,4 +86,9 @@ h4{
     font-weight: 700;
     line-height: 25px;
     letter-spacing: 1px;
+}
+
+.btn.active {
+    background-color: var(--mercury-color);
+    border-color: var(--mercury-color);
 }
