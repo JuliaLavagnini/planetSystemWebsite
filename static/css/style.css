@@ -1,0 +1,66 @@
+:root{
+    --title-font: "Antonio", sans-serif;
+    --main-font: "League Spartan", sans-serif;
+    --h1-font: 80px;
+    --h2-font: 40px;
+    --h3-font: 12px;
+    --h4-font: 11px;
+    --p-font: 14px;
+    --white-color: #fff;
+    --black-color: #070724;
+    --dark-grey-color: #38384f;
+    --light-grey-color: #838391;
+    --mercury-color: #419EBB;
+    --venus-color: #EDA249;
+    --earth-color: #6f2ed6;
+    --mars-color: #D14C32;
+    --jupiter-color: #d83a34;
+    --saturn-color: #cd5120;
+    --uranus-color: #1ec2a4;
+    --neptune-color: #2d68f0;
+}
+
+body{
+    color: var(--white-color);
+    font-family: var(--main-font);
+    font-size: var(--p-font);
+    font-weight: 400;
+    line-height: 25px;
+    background-image: url("/static/assets/background-stars.svg");
+    background-color: var(--black-color);
+    background-size: cover;
+}
+
+h1,h2{
+    font-family: var(--title-font);
+}
+
+h3,h4{
+    font-weight: 700;
+}
+
+h1,h2,h3,h4{
+    text-transform: uppercase;
+    font-family: var(--title-font);
+}
+
+h1{
+    font-size: var(--h1-font);
+    line-height: 103px;
+}
+
+h2{
+    font-size: var(--h2-font);
+    line-height: 52px;
+    letter-spacing: -1.5px;
+}
+
+h3{
+    font-size: var(--h3-font);
+    letter-spacing: 2.6px;
+}
+
+h4{
+    font-size: var(--h4-font);
+    letter-spacing: 1px;
+}
