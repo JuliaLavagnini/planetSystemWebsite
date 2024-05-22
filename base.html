@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <div id="head-placeholder"></div>
+  </head>
+
+  <body>
+    <!--NAVBAR-->
+    <div id="navbar-placeholder"></div>
+
+    <!--MAIN CONTENT-->
+    <div id="content-placeholder">
+      <main>
+        <div class="container-md">
+          <div class="row align-items-center">
+            <!--IMAGES-->
+            <div class="col-8 text-center image-container">
+              <img class="img01" src="" alt="" id="planet-image" />
+              <img class="img03 hidden" src="" alt="03" id="image03" />
+            </div>
+            <!--CONTENT-->
+            <div class="col-4">
+              <h1 id="planet-name"></h1>
+              <div>
+                <!-- Overview Content Start -->
+                <p id="text">Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of four terrestrial planets in the Solar System, and is a rocky body like Earth.",
+                </p>
+                <!--SOURCE-->
+                <p>
+                  <span class="text-white-50">
+                    Source :
+                    <a href="" target="_blank" id="source">Wikipedia</a>
+                    <img src="/static/assets/icon-source.svg" alt="icon-source" />
+                  </span>
+                </p>
+      
+                <!-- Overview Content End -->
+                <button
+                  class="btn w-100 rounded-0 text-start mb-3 active"
+                  id="01"
+                >
+                  <span class="text-white-50 pe-3 ps-3">01</span> Overview
+                </button>
+      
+                <!-- Internal Structure Content End -->
+                <button class="btn w-100 rounded-0 text-start mb-3" id="02">
+                  <span class="text-white-50 pe-3 ps-3">02</span> Internal
+                  Structure
+                </button>
+      
+                <!-- Surface Geology Content End -->
+                <button class="btn w-100 rounded-0 text-start" id="03">
+                  <span class="text-white-50 pe-3 ps-3">03</span> Surface Geology
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      
+      <footer class="mb-2">
+        <div class="container-md extra-info">
+          <ul class="d-flex grid gap-4">
+            <!--ROTATION-->
+            <li class="flex-fill">
+              <h4 class="text-white-50">Rotation Time</h4>
+              <h2 id="rotation"></h2>
+            </li>
+            <!--REVOLUTION-->
+            <li class="flex-fill">
+              <h4 class="text-white-50">Revolution Time</h4>
+              <h2 id="revolution"></h2>
+            </li>
+            <!--RADIUS-->
+            <li class="flex-fill">
+              <h4 class="text-white-50">Radius</h4>
+              <h2 id="radius"></h2>
+            </li>
+            <!--AVERAGE-->
+            <li class="flex-fill">
+              <h4 class="text-white-50">Average Temp.</h4>
+              <h2 id="temperature"></h2>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let plantName = document.getElementById('planet-name');
+      const plantImage = document.getElementById('planet-image');
+      const text = document.getElementById('text');
+      const source = document.getElementById('source');
+      const rotation = document.getElementById('rotation');
+      const revolution = document.getElementById('revolution');
+      const radius = document.getElementById('radius');
+      const tempetature = document.getElementById('temperature');
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to load head
+        function loadHead() {
+          fetch("head.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.getElementById("head-placeholder").innerHTML = data;
+            });
+        }
+
+        // Function to load navbar
+        function loadNavbar() {
+          fetch("navbar.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.getElementById("navbar-placeholder").innerHTML = data;
+            });
+        }
+
+        // Load content from data.json based on URL parameter
+        function loadContent(pageName) {
+          fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+              console.log('Data fetched:', data);
+              const planetData = data.find(planet => planet.name.toLowerCase() === pageName.toLowerCase());
+              if (planetData) {
+                console.log('Planet data:', planetData);
+                console.log('Planet data:', planetData.name);
+                console.log(plantName);
+
+                plantName.innerHTML = planetData.name;
+                plantImage.src = planetData.images.planet;
+                pageName.alt = planetData.name;
+                text.innerText = planetData.overview.content;
+                source.href = planetData.overview.source;
+
+                rotation.innerText = planetData.rotation;
+                revolution.innerText = planetData.revolution;
+                radius.innerText = planetData.radius;
+                tempetature.innerText = planetData.temperature;
+              } else {
+                console.error('Page not found:', pageName);
+                document.getElementById('content-placeholder').innerHTML = '<h1>Page not found</h1>';
+              }
+            })
+            .catch(error => {
+                console.error('Error loading content:', error);
+            });
+        }
+
+        // Determine the page to load based on URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = urlParams.get("page") || "Mercury"; // Default to page1 if no parameter is provided
+        
+        console.log('Page name:', page);
+
+        loadHead();
+        loadNavbar();
+        loadContent(page);
+      });
+    </script>
+  </body>
+</html>

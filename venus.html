@@ -1,63 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<main>
+  <div class="container-md">
+    <div class="row align-items-center">
+      <!--IMAGES-->
+      <div class="col-8 text-center image-container">
+        <img class="img01" src="" alt="" id="" />
+        <img class="img03 hidden" src="" alt="03" id="image03" />
+      </div>
+      <!--CONTENT-->
+      <div class="col-4">
+        <h1></h1>
+        <div>
+          <!-- Overview Content Start -->
+          <p id="text">Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. As the brightest natural object in Earth's night sky after the Moon, Venus can cast shadows and can be, on rare occasions, visible to the naked eye in broad daylight.",
+          </p>
+          <!--SOURCE-->
+          <p>
+            <span class="text-white-50">
+              Source :
+              <a href="" target="_blank" id="link">Wikipedia</a>
+              <img src="/static/assets/icon-source.svg" alt="icon-source" />
+            </span>
+          </p>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Planets fact site</title>
-</head>
-<body>
-  Venus
+          <!-- Overview Content End -->
+          <button
+            class="btn w-100 rounded-0 text-start mb-3 active"
+            id="01"
+          >
+            <span class="text-white-50 pe-3 ps-3">01</span> Overview
+          </button>
 
-  <!-- Overview Content Start -->
+          <!-- Internal Structure Content End -->
+          <button class="btn w-100 rounded-0 text-start mb-3" id="02">
+            <span class="text-white-50 pe-3 ps-3">02</span> Internal
+            Structure
+          </button>
 
-  Venus is the second planet from the Sun. It is named after the 
-  Roman goddess of love and beauty. As the brightest natural object 
-  in Earth's night sky after the Moon, Venus can cast shadows and 
-  can be, on rare occasions, visible to the naked eye in broad daylight.
+          <!-- Surface Geology Content End -->
+          <button class="btn w-100 rounded-0 text-start" id="03">
+            <span class="text-white-50 pe-3 ps-3">03</span> Surface Geology
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
-  Source : Wikipedia <!-- URL: https://en.wikipedia.org/wiki/Venus -->
-
-  <!-- Overview Content End -->
-
-  <!-- Internal Structure Content Start -->
-
-  The similarity in size and density between Venus and Earth suggests 
-  they share a similar internal structure: a core, mantle, and crust. 
-  Like that of Earth, Venusian core is most likely at least partially 
-  liquid because the two planets have been cooling at about the same rate.
-
-  Source : Wikipedia <!-- URL: https://en.wikipedia.org/wiki/Venus#Internal_structure -->
-
-  <!-- Internal Structure Content End -->
-
-  <!-- Surface Geology Content Start -->
-
-  Much of the Venusian surface appears to have been shaped by volcanic activity. 
-  Venus has several times as many volcanoes as Earth, and it has 167 large 
-  volcanoes that are over 100 km (60 mi) across. The only volcanic complex 
-  of this size on Earth is the Big Island of Hawaii.
-
-  Source : Wikipedia <!-- URL: https://en.wikipedia.org/wiki/Venus#Surface_geology -->
-
-  <!-- Surface Geology Content End -->
-
-  01 Overview
-  02 Internal Structure
-  03 Surface Geology
-
-  Rotation Time
-  243 Days
-
-  Revolution Time
-  224.7 Days
-
-  Radius
-  6,051.8 KM
-
-  Average Temp.
-  471°c
-</body>
-</html>
+<footer class="mb-2">
+  <div class="container-md extra-info">
+    <ul class="d-flex grid gap-4">
+      <!--ROTATION-->
+      <li class="flex-fill">
+        <h4 class="text-white-50">Rotation Time</h4>
+        <h2 id="rotation"></h2>
+      </li>
+      <!--REVOLUTION-->
+      <li class="flex-fill">
+        <h4 class="text-white-50">Revolution Time</h4>
+        <h2 id="revolution"></h2>
+      </li>
+      <!--RADIUS-->
+      <li class="flex-fill">
+        <h4 class="text-white-50">Radius</h4>
+        <h2 id="radius"></h2>
+      </li>
+      <!--AVERAGE-->
+      <li class="flex-fill">
+        <h4 class="text-white-50">Average Temp.</h4>
+        <h2 id="temperature"></h2>
+      </li>
+    </ul>
+  </div>
+</footer>
