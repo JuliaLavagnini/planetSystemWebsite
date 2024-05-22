@@ -33,6 +33,7 @@ body{
     background-image: url("/static/assets/background-stars.svg");
     background-color: var(--black-color);
     background-size: cover;
+    font-style: normal;
 }
 
 h1,h2{
@@ -41,11 +42,12 @@ h1,h2{
 
 h3,h4{
     font-weight: 700;
+    font-family: var(--main-font);
 }
 
 h1,h2,h3,h4{
     text-transform: uppercase;
-    font-family: var(--title-font);
+    font-style: normal;
 }
 
 h1{
@@ -88,7 +90,44 @@ h4{
     letter-spacing: 1px;
 }
 
-.btn.active {
+main{
+    margin-top: 100px;
+}
+
+a {
+    color: var(--light-grey-color);
+}
+
+.btn {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: var(--p-font);
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 2.571px;
+    border-color: #fff;
+}
+
+.btn:active {
     background-color: var(--mercury-color);
     border-color: var(--mercury-color);
 }
+
+.btn:hover{
+    background-color: var(--dark-grey-color);
+    border-color: var(--dark-grey-color);
+}
+
+footer{
+    margin-top: 100px;
+}
+
+ul{
+    list-style: none;
+}
+.extra-info ul li{    
+    padding: 20px 100px 15px 15px;
+    border: 2px solid var(--light-grey-color);
+}
+
