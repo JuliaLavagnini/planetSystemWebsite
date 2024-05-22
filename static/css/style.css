@@ -109,11 +109,45 @@ a {
     border-color: #fff;
 }
 
-.btn.active {
+.planet-mercury .btn.active {
     background-color: var(--mercury-color);
     border-color: var(--mercury-color);
 }
 
+.planet-venus .btn.active {
+    background-color: var(--venus-color);
+    border-color: var(--venus-color);
+}
+
+.planet-earth .btn.active {
+    background-color: var(--earth-color);
+    border-color: var(--earth-color);
+}
+
+.planet-mars .btn.active {
+    background-color: var(--mars-color);
+    border-color: var(--mars-color);
+}
+
+.planet-jupiter .btn.active {
+    background-color: var(--jupiter-color);
+    border-color: var(--jupiter-color);
+}
+
+.planet-saturn .btn.active {
+    background-color: var(--saturn-color);
+    border-color: var(--saturn-color);
+}
+
+.planet-uranus .btn.active {
+    background-color: var(--uranus-color);
+    border-color: var(--uranus-color);
+}
+
+.planet-neptune .btn.active {
+    background-color: var(--neptune-color);
+    border-color: var(--neptune-color);
+}
 .btn:hover{
     background-color: var(--dark-grey-color);
     border-color: var(--dark-grey-color);

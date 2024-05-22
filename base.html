@@ -10,7 +10,7 @@
 
     <!--MAIN CONTENT-->
     <div id="content-placeholder">
-      <main>
+      <main id="main-content">
         <div class="container-md">
           <div class="row align-items-center">
             <!--IMAGES-->
@@ -140,6 +140,8 @@
               console.log('Data fetched:', data);
               const planetData = data.find(planet => planet.name.toLowerCase() === pageName.toLowerCase());
               if (planetData) {
+                document.getElementById('main-content').className = `planet-${planetData.name.toLowerCase()}`;
+
                 console.log('Planet data:', planetData);
                 console.log('Planet data:', planetData.name);
                 console.log(planetName);
