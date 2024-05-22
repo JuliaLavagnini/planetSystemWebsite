@@ -109,7 +109,7 @@ a {
     border-color: #fff;
 }
 
-.btn:active {
+.btn.active {
     background-color: var(--mercury-color);
     border-color: var(--mercury-color);
 }
@@ -121,6 +121,7 @@ a {
 
 footer{
     margin-top: 100px;
+    margin-bottom: 15px;
 }
 
 ul{
@@ -131,3 +132,21 @@ ul{
     border: 2px solid var(--light-grey-color);
 }
 
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Styling for the smaller image */
+.image-container .img03 {
+    position: absolute;
+    top: 60%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 150px;
+    height: auto;
+}
+
+.hidden {
+    display: none;
+}
