@@ -16,15 +16,14 @@
             <!--IMAGES-->
             <div class="col-8 text-center image-container">
               <img class="img01" src="" alt="" id="planet-image" />
-              <img class="img03 hidden" src="" alt="03" id="image03" />
+              <img class="planet-geology hidden" src="" alt="" id="planet-geology" />
             </div>
             <!--CONTENT-->
             <div class="col-4">
               <h1 id="planet-name"></h1>
               <div>
                 <!-- Overview Content Start -->
-                <p id="text">Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of four terrestrial planets in the Solar System, and is a rocky body like Earth.",
-                </p>
+                <p id="text"></p>
                 <!--SOURCE-->
                 <p>
                   <span class="text-white-50">
@@ -100,14 +99,19 @@
     ></script>
 
     <script>
-      let plantName = document.getElementById('planet-name');
-      const plantImage = document.getElementById('planet-image');
+      const planetName = document.getElementById('planet-name');
+      const planetImage = document.getElementById('planet-image');
+      const planetGeology = document.getElementById('planet-geology');
       const text = document.getElementById('text');
       const source = document.getElementById('source');
+      const button01 = document.getElementById("01");
+      const button02 = document.getElementById("02");
+      const button03 = document.getElementById("03");
       const rotation = document.getElementById('rotation');
       const revolution = document.getElementById('revolution');
       const radius = document.getElementById('radius');
       const tempetature = document.getElementById('temperature');
+      const btns = [button01, button02, button03];
 
       document.addEventListener("DOMContentLoaded", function () {
         // Function to load head
@@ -138,13 +142,53 @@
               if (planetData) {
                 console.log('Planet data:', planetData);
                 console.log('Planet data:', planetData.name);
-                console.log(plantName);
+                console.log(planetName);
 
-                plantName.innerHTML = planetData.name;
-                plantImage.src = planetData.images.planet;
-                pageName.alt = planetData.name;
-                text.innerText = planetData.overview.content;
-                source.href = planetData.overview.source;
+                btns.forEach(button => {
+                  button.addEventListener("click", (event) => {
+                    // Remove 'active' class from all buttons
+                    btns.forEach(btn => btn.classList.remove('active'));
+
+                    // Add 'active' class to the clicked button
+                    event.target.classList.add('active');
+
+                    // Hide image03 by default
+                    planetGeology.classList.add('hidden');
+
+                    switch(event.target.id) {
+                      case "01":
+                        planetName.innerHTML = planetData.name;
+                        planetImage.src = planetData.images.planet;
+                        pageName.alt = planetData.name;
+                        text.innerText = planetData.overview.content;
+                        source.href = planetData.overview.source;
+                      break;
+                      case '02':
+                        planetName.innerHTML = planetData.name;
+                        text.innerText = planetData.structure.content;
+                        source.href = planetData.structure.source;
+                        planetImage.src = planetData.images.internal;
+                        pageName.alt = 'internal structure';
+                      break;
+                      case '03':
+                        planetName.innerHTML = planetData.name;
+                        text.innerText = planetData.geology.content;
+                        source.href = planetData.geology.source;
+                        planetImage.src = planetData.images.planet;
+                        planetGeology.src = planetData.images.geology;
+                        planetGeology.alt = planetData.name;
+                        planetGeology.classList.remove('hidden');
+
+                        console.log(planetData.images.geology);
+                      break;
+                    default:
+                        text.innerText = '';
+                        source.href = '';
+                        plantImage.src = '';
+                        pageName.alt = '';
+                    }
+                  });
+                });
 
                 rotation.innerText = planetData.rotation;
                 revolution.innerText = planetData.revolution;
